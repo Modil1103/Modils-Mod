@@ -1,0 +1,95 @@
+{
+  "itemName" : "thea-briggsautonailgun1",
+  "price" : 325,
+  "inventoryIcon" : "thea-briggsautonailgun1.png",
+  "maxStack" : 1,
+  "rarity" : "Legendary",
+  "description" : "Why would anyone need an automatic nailgun?.",
+  "manufacturer" : "^gray;Briggs Shipbuilding^reset;",
+  "shortdescription" : "Briggs Auto Nailer",
+  "level" : 1,
+  "fixedLevel" : false,
+  "tooltipKind" : "thea-gun-mf-attachment",
+  "category" : "Assault Rifle",
+  "itemTags" : ["weapon","ranged","assaultrifle","alliance","allianceUpgradeable"],
+  "twoHanded" : true,
+  
+  
+  "animation" : "/items/active/weapons/ranged/animations/thea-gun.animation",
+  "animationParts" : {
+    "middle" : "thea-briggsautonailgun1.png",
+    "muzzleFlash" : "/items/active/weapons/ranged/muzzleflash/alliancephysicalflash.png"
+  },
+  "animationCustom" : {
+    "animatedParts" : {
+      "parts" : {
+        "middleFullbright" : {
+		  "properties" : {
+		    "offset" : [0.875, 0.125]
+		  }
+		}
+      }
+    },
+    "particleEmitters" : {
+    },
+    "sounds" : {
+      "fire" : [ "/sfx/gun/thea_plasmagun1.ogg" ]
+    }
+  },
+
+  "baseOffset" : [0.875, 0.125],
+  "muzzleOffset" : [2.25, 0.375],
+
+  "scripts" : ["/items/active/weapons/ranged/thea-gun.lua"],
+
+  "elementalType" : "physical",
+
+  "primaryAbility" : {
+    "scripts" : ["/items/active/weapons/ranged/gunfire.lua"],
+    "class" : "GunFire",
+
+    "fireTime" : 0.18,
+    "baseDps" : 9.5,
+    "energyUsage" : 31.5,
+    "inaccuracy" : 0.025,
+
+    "projectileCount" : 1,
+    "fireType" : "auto",
+
+    "projectileType" : "akkimarinail",
+    "projectileParameters" : {
+      "knockback" : 2
+    },
+	
+    "stances" : {
+      "idle" : {
+        "armRotation" : 0,
+        "weaponRotation" : 0,
+        "twoHanded" : true,
+
+        "allowRotate" : true,
+        "allowFlip" : true
+      },
+      "fire" : {
+        "duration" : 0,
+        "armRotation" : 3,
+        "weaponRotation" : 3,
+        "twoHanded" : true,
+
+        "allowRotate" : false,
+        "allowFlip" : false
+      },
+      "cooldown" : {
+        "duration" : 0.075,
+        "armRotation" : 3,
+        "weaponRotation" : 3,
+        "twoHanded" : true,
+
+        "allowRotate" : false,
+        "allowFlip" : false
+      }
+    }
+  },
+
+  "builder" : "/items/buildscripts/thea-buildweapon-mf-attachment.lua"
+}

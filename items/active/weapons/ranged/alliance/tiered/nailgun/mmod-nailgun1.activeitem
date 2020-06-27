@@ -1,0 +1,103 @@
+{
+  "itemName" : "mmod-nailgun1",
+  "price" : 50,
+  "inventoryIcon" : "mmod-nailgun1.png:idle",
+  "maxStack" : 1,
+  "rarity" : "Rare",
+  "description" : "A standard issue nailgun used for both construction and combat.",
+  "manufacturer" : "",
+  "shortdescription" : "^red;Erior^reset;",
+  "level" : 1,
+  "fixedLevel" : false,
+  "tooltipKind" : "thea-gun-mf",
+  "category" : "Handgun",
+  "itemTags" : ["weapon","ranged","pistol","alliance","rimdweller","allianceUpgradeable"],
+  "twoHanded" : false,
+
+  "animation" : "/items/active/weapons/ranged/animations/thea-gun-ejectbullet2.animation",
+  "animationParts" : {
+    "middle" : "mmod-nailgun1.png",
+    "muzzleFlash" : ""
+  },
+  "animationCustom" : {
+    "animatedParts" : {
+      "parts" : {
+        "middleFullbright" : {
+		  "properties" : {
+		    "offset" : [0.25, 0.0]
+		  }
+		}
+      }
+    },
+    "particleEmitters" : {
+      "muzzleFlash" : {
+        "transformationGroups" : ["weapon"],
+		"offsetRegion" : [0.125, 0.125, 0.125, 0.125],
+        "particles" : [
+          { "particle" : "thea-discardedbulletlight" }
+        ]
+      }
+    },
+    "sounds" : {
+      "fire" : [ "/sfx/gun/pistol1.ogg" ]
+    }
+  },
+
+  "baseOffset" : [0.25, 0.0],
+  "muzzleOffset" : [1.0, 0.375],
+
+  "scripts" : ["/items/active/weapons/ranged/thea-gun.lua"],
+
+  "elementalType" : "physical",
+  
+  "primaryAbility" : {
+    "scripts" : ["/items/active/weapons/ranged/abilities/thea-gunfire.lua"],
+    "class" : "TheaGunFire",
+
+    "fireTime" : 0.38,
+    "baseDps" : 5.0,
+    "energyUsage" : 24,
+    "inaccuracy" : 0.025,
+
+    "projectileCount" : 1,
+    "fireType" : "auto",
+
+    "projectileType" : "akkimarinail",
+    "projectileParameters" : {
+      "knockback" : 4
+    },
+	
+	"singleFireAnimation" : true, //Tells the weapon that the active animation is single-fire instead of looping, allowing altFire to also play the active animation
+	
+    "stances" : {
+      "idle" : {
+        "armRotation" : 0,
+        "weaponRotation" : 0,
+        "twoHanded" : false,
+
+        "allowRotate" : true,
+        "allowFlip" : true
+      },
+      "fire" : {
+        "duration" : 0,
+        "armRotation" : 6,
+        "weaponRotation" : 7,
+        "twoHanded" : false,
+
+        "allowRotate" : false,
+        "allowFlip" : true
+      },
+      "cooldown" : {
+        "duration" : 0.1,
+        "armRotation" : 6,
+        "weaponRotation" : 7,
+        "twoHanded" : false,
+
+        "allowRotate" : false,
+        "allowFlip" : true
+      }
+    }
+  },
+  
+  "builder" : "/items/buildscripts/thea-buildweapon-mf.lua"
+}

@@ -1,0 +1,158 @@
+{
+  "itemName" : "mmod-unrimrifle1",
+  "price" : 325,
+  "inventoryIcon" : "mmod-unrimrifle1.png:idle",
+  "maxStack" : 1,
+  "rarity" : "Legendary",
+  "description" : "An assault rifle produced somewhere in the Rim, refurbished for Alliance use.",
+  "manufacturer" : "^gray;Rim Refurbished^reset;",
+  "shortdescription" : "Ripper RM6",
+  "level" : 6,
+  "fixedLevel" : false,
+  "tooltipKind" : "thea-gun-mf",
+  "category" : "Assault Rifle",
+  "itemTags" : ["weapon","ranged","assaultrifle","alliance","rimdweller","allianceUpgradeable"],
+  "twoHanded" : true,
+  
+  "animation" : "/items/active/weapons/ranged/animations/thea-gun-ejectbullet.animation",
+  "animationParts" : {
+    "middle" : "mmod-unrimrifle1.png",
+    "middleFullbright" : "mmod-unrimrifle1lights.png",
+    "muzzleFlash" : "/items/active/weapons/ranged/muzzleflash.png"
+  },
+  "animationCustom" : {
+    "animatedParts" : {
+      "parts" : {
+        "middleFullbright" : {
+		  "properties" : {
+		    "offset" : [1.0, 0.125]
+		  }
+		}
+      }
+    },
+    "particleEmitters" : {
+      "muzzleFlash" : {
+        "transformationGroups" : ["weapon"],
+		"offsetRegion" : [0.875, 0.375, 0.875, 0.375],
+        "particles" : [
+          { "particle" : "thea-discardedbulletlight" }
+        ]
+      },
+      "altMuzzleFlash" : {
+        "transformationGroups" : ["weapon"],
+		"offsetRegion" : [0.875, 0.375, 0.875, 0.275],
+        "particles" : [
+          { "particle" : "thea-discardedbulletlight" }
+        ]
+      }
+    },
+    "sounds" : {
+      "fire" : ["/sfx/gun/lyiinsrifle_fire2.ogg"],
+      "altFire" : [ "/sfx/gun/andraveihan_stop2.ogg" ]
+    }
+  },
+
+  "baseOffset" : [1.0, 0.125],
+  "muzzleOffset" : [2.25, 0.25],
+
+  "scripts" : ["/items/active/weapons/ranged/thea-gun.lua"],
+
+  "elementalType" : "physical",
+
+  "primaryAbility" : {
+    "scripts" : ["/items/active/weapons/ranged/abilities/thea-gunfire.lua"],
+    "class" : "TheaGunFire",
+
+    "fireTime" : 0.08,
+    "baseDps" : 10.5,
+    "energyUsage" : 31.5,
+    "inaccuracy" : 0.025,
+
+    "projectileCount" : 1,
+    "fireType" : "auto",
+
+    "projectileType" : "alliancephysicaltracerbullet",
+    "projectileParameters" : {
+      "knockback" : 1
+    },
+	
+	"singleFireAnimation" : true, //Tells the weapon that the active animation is single-fire instead of looping, allowing altFire to also play the active animation
+	
+    "stances" : {
+      "idle" : {
+        "armRotation" : 0,
+        "weaponRotation" : 0,
+        "twoHanded" : true,
+
+        "allowRotate" : true,
+        "allowFlip" : true
+      },
+      "fire" : {
+        "duration" : 0,
+        "armRotation" : 3,
+        "weaponRotation" : 3,
+        "twoHanded" : true,
+
+        "allowRotate" : false,
+        "allowFlip" : false
+      },
+      "cooldown" : {
+        "duration" : 0.075,
+        "armRotation" : 3,
+        "weaponRotation" : 3,
+        "twoHanded" : true,
+
+        "allowRotate" : false,
+        "allowFlip" : false
+      }
+    }
+  },
+
+  "altAbility" : {
+    "name" : "Grenade Launcher",
+    "scripts" : ["/items/active/weapons/ranged/abilities/thea-altfire.lua"],
+	"class" : "TheaAltFireAttack",
+
+    "baseDps" : 15.0,
+	"fireTime" : 0.25,
+    "energyUsage" : 35.0,
+    "inaccuracy" : 0.01,
+
+	"projectileCount" : 1,
+    "fireType" : "auto",
+	
+	"projectileType" : "alliancegrenade",
+	"projectileParameters" : {
+	  "knockback" : 6,
+	  "piercing" : true
+	},
+	
+	"hidePrimaryMuzzleFlash" : false,
+	"useParticleEmitter" : true,
+	"usePrimaryFireSound" : false,
+	"animateWeapon" : true, //Sets the weapon's animation state to "active" when firing
+
+    "stances" : {
+      "fire" : {
+        "duration" : 0,
+        "armRotation" : 2,
+        "weaponRotation" : 2,
+        "twoHanded" : true,
+
+        "allowRotate" : false,
+        "allowFlip" : false
+      },
+      "cooldown" : {
+        "duration" : 0.85,
+        "armRotation" : 2,
+        "weaponRotation" : 2,
+        "twoHanded" : true,
+
+        "allowRotate" : false,
+        "allowFlip" : false
+      }
+    }
+  },
+
+  "builder" : "/items/buildscripts/thea-buildweapon-mf.lua"
+}

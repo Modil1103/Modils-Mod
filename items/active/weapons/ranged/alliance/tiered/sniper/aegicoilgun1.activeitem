@@ -1,0 +1,97 @@
+{
+  "itemName" : "aegicoilgun1",
+  "price" : 3325,
+  "inventoryIcon" : "aegicoilgun1.png",
+  "maxStack" : 1,
+  "rarity" : "Legendary",
+  "description" : "Wars shall not end until all of existance perishes",
+  "manufacturer" : "^blue;Prototype^reset;",
+  "shortdescription" : "^blue;Servitor^reset;",
+  "level" : 6,
+  "fixedLevel" : false,
+  "tooltipKind" : "thea-gun-mf",
+  "category" : "Sniper Rifle",
+  "itemTags" : ["weapon","ranged","sniperrifle","alliance","allianceUpgradeable"],
+  "twoHanded" : true,
+  
+  "cursor" : "/cursors/mmodcoilgunreticle.cursor",
+  
+  "animation" : "/items/active/weapons/ranged/animations/thea-gun.animation",
+  "animationParts" : {
+    "middle" : "aegicoilgun1.png",
+    "muzzleFlash" : "/items/active/weapons/ranged/muzzleflash/allianceenergyflash.png"
+  },
+  "animationCustom" : {
+    "animatedParts" : {
+      "parts" : {
+        "middleFullbright" : {
+		  "properties" : {
+		    "offset" : [0.875, 0.125]
+		  }
+		}
+      }
+    },
+    "particleEmitters" : {
+    },
+    "sounds" : {
+      "fire" : [ "/sfx/gun/thea_plasmagun1.ogg" ]
+    }
+  },
+
+  "baseOffset" : [0.875, 0.125],
+  "muzzleOffset" : [2.25, 0.375],
+
+  "scripts" : ["/items/active/weapons/ranged/thea-gun.lua"],
+
+  "elementalType" : "physical",
+
+  "primaryAbility" : {
+    "scripts" : ["/items/active/weapons/ranged/gunfire.lua"],
+    "class" : "GunFire",
+
+    "fireTime" : 2.0,
+    "baseDps" : 8.5,
+    "energyUsage" : 45,
+    "inaccuracy" : 0.005,
+
+    "projectileCount" : 1,
+    "fireType" : "auto",
+
+    "projectileType" : "allianceexplosivelaser",
+    "projectileParameters" : {
+      "knockback" : 12,
+	  "speed" : 250
+    },
+	
+    "stances" : {
+      "idle" : {
+        "armRotation" : 0,
+        "weaponRotation" : 0,
+        "twoHanded" : true,
+
+        "allowRotate" : true,
+        "allowFlip" : true
+      },
+      "fire" : {
+        "duration" : 0,
+        "armRotation" : 4,
+        "weaponRotation" : 4,
+        "twoHanded" : true,
+
+        "allowRotate" : false,
+        "allowFlip" : false
+      },
+      "cooldown" : {
+        "duration" : 0.35,
+        "armRotation" : 4,
+        "weaponRotation" : 4,
+        "twoHanded" : true,
+
+        "allowRotate" : false,
+        "allowFlip" : false
+      }
+    }
+  },
+
+  "builder" : "/items/buildscripts/thea-buildweapon-mf.lua"
+}

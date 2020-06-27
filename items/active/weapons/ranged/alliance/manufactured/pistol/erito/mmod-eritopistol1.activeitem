@@ -1,0 +1,92 @@
+{
+  "itemName" : "mmod-eritopistol1",
+  "price" : 250,
+  "inventoryIcon" : "mmod-eritopistol1.png",
+  "maxStack" : 1,
+  "rarity" : "Legendary",
+  "description" : "The standard handgun held by P-ASA officers.",
+  "manufacturer" : "^gray;Erito Security^reset;",
+  "shortdescription" : "Avren Compact",
+  "level" : 3,
+  "fixedLevel" : false,
+  "tooltipKind" : "thea-gun-mf",
+  "category" : "Pistol",
+  "itemTags" : ["weapon","ranged","pistol","alliance","aae","allianceUpgradeable"],
+  "twoHanded" : false,
+
+  "animation" : "/items/active/weapons/ranged/animations/thea-gun.animation",
+  "animationParts" : {
+    "middle" : "mmod-eritopistol1.png",
+    "muzzleFlash" : "/items/active/weapons/ranged/muzzleflash/allianceenergyflash.png"
+  },
+  "animationCustom" : {
+    "animatedParts" : {
+      "parts" : {
+        "middleFullbright" : {
+		  "properties" : {
+		    "offset" : [0.25, 0.0]
+		  }
+		}
+      }
+    },
+    "sounds" : {
+      "fire" : [ "/sfx/gun/thea_plasmagun1.ogg" ]
+    }
+  },
+
+  "baseOffset" : [0.25, 0.0],
+  "muzzleOffset" : [1.0, 0.375],
+
+  "scripts" : ["/items/active/weapons/ranged/thea-gun.lua"],
+
+  "elementalType" : "physical",
+  
+  "primaryAbility" : {
+    "scripts" : ["/items/active/weapons/ranged/gunfire.lua"],
+    "class" : "GunFire",
+
+    "fireTime" : 0.15,
+    "baseDps" : 3.0,
+    "energyUsage" : 24,
+    "inaccuracy" : 0.02,
+
+    "projectileCount" : 1,
+    "fireType" : "auto",
+
+    "projectileType" : "alliancesmarttrailbullet",
+    "projectileParameters" : {
+      "knockback" : 4
+    },
+	
+    "stances" : {
+      "idle" : {
+        "armRotation" : 0,
+        "weaponRotation" : 0,
+        "twoHanded" : false,
+
+        "allowRotate" : true,
+        "allowFlip" : true
+      },
+      "fire" : {
+        "duration" : 0,
+        "armRotation" : 6,
+        "weaponRotation" : 7,
+        "twoHanded" : false,
+
+        "allowRotate" : false,
+        "allowFlip" : true
+      },
+      "cooldown" : {
+        "duration" : 0.1,
+        "armRotation" : 6,
+        "weaponRotation" : 7,
+        "twoHanded" : false,
+
+        "allowRotate" : false,
+        "allowFlip" : true
+      }
+    }
+  },
+  
+  "builder" : "/items/buildscripts/thea-buildweapon-mf.lua"
+}
