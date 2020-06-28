@@ -1,0 +1,112 @@
+{
+  "itemName" : "mmod-scoutrifle1",
+  "price" : 50,
+  "inventoryIcon" : "mmod-scoutrifle1.png:idle",
+  "maxStack" : 1,
+  "rarity" : "Common",
+  "description" : "A sturdy Allosteel assasult rifle made for civil use.",
+  "manufacturer" : "^gray;^reset;",
+  "shortdescription" : "Helyos S22",
+  "level" : 1,
+  "fixedLevel" : false,
+  "tooltipKind" : "thea-gun-mf",
+  "category" : "Assault Rifle",
+  "itemTags" : ["weapon","ranged","assaultrifle","alliance","rimdweller","allianceUpgradeable"],
+  "twoHanded" : true,
+  
+  "animation" : "/items/active/weapons/ranged/animations/thea-gun-ejectbullet.animation",
+  "animationParts" : {
+    "middle" : "mmod-scoutrifle1.png",
+    "muzzleFlash" : "/items/active/weapons/ranged/alliancepulseflash.png"
+  },
+  "animationCustom" : {
+    "animatedParts" : {
+      "parts" : {
+        "middleFullbright" : {
+		  "properties" : {
+		    "offset" : [1.0, 0.125]
+		  }
+		}
+      }
+    },
+    "particleEmitters" : {
+      "muzzleFlash" : {
+        "transformationGroups" : ["weapon"],
+		"offsetRegion" : [0.875, 0.375, 0.875, 0.375],
+        "particles" : [
+          { "particle" : "lineriflepuff" }
+        ]
+      },
+      "altMuzzleFlash" : {
+        "transformationGroups" : ["weapon"],
+		"offsetRegion" : [0.875, 0.375, 0.875, 0.275],
+        "particles" : [
+          { "particle" : "lineriflepuff" }
+        ]
+      }
+    },
+    "sounds" : {
+      "fire" : ["/sfx/gun/thea_plasmagun_silenced2.ogg"],
+      "altFire" : [ "/sfx/gun/thea_plasmagun_silenced2.ogg" ]
+    }
+  },
+
+  "baseOffset" : [1.0, 0.125],
+  "muzzleOffset" : [2.25, 0.25],
+
+  "scripts" : ["/items/active/weapons/ranged/thea-gun.lua"],
+
+  "elementalType" : "physical",
+
+  "primaryAbility" : {
+    "scripts" : ["/items/active/weapons/ranged/abilities/thea-gunfire.lua"],
+    "class" : "TheaGunFire",
+
+    "fireTime" : 0.25,
+    "baseDps" : 7.5,
+    "energyUsage" : 0,
+    "inaccuracy" : 0.025,
+
+    "projectileCount" : 1,
+    "fireType" : "auto",
+
+    "projectileType" : "alliancebranditzerbullet",
+    "projectileParameters" : {
+      "knockback" : 1
+    },
+	
+	"singleFireAnimation" : true, //Tells the weapon that the active animation is single-fire instead of looping, allowing altFire to also play the active animation
+	
+    "stances" : {
+      "idle" : {
+        "armRotation" : 0,
+        "weaponRotation" : 0,
+        "twoHanded" : true,
+
+        "allowRotate" : true,
+        "allowFlip" : true
+      },
+      "fire" : {
+        "duration" : 0,
+        "armRotation" : 3,
+        "weaponRotation" : 3,
+        "twoHanded" : true,
+
+        "allowRotate" : false,
+        "allowFlip" : false
+      },
+      "cooldown" : {
+        "duration" : 0.075,
+        "armRotation" : 3,
+        "weaponRotation" : 3,
+        "twoHanded" : true,
+
+        "allowRotate" : false,
+        "allowFlip" : false
+
+      }
+    }
+  },
+
+  "builder" : "/items/buildscripts/thea-buildweapon-mf.lua"
+}
